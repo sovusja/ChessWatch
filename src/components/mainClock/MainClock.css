@@ -1,0 +1,9 @@
+.background {
+  display: flex;
+  background-color: rgb(245, 242, 98);
+  border: 5px solid darkslategray;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+}
