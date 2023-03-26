@@ -1,6 +1,7 @@
 import React from "react";
 import "./MainClock.css";
 import Number from "../number/Number";
+import Arrow from "../arrow/Arrow";
 
 const MainClock = () => {
   const minutes = [
@@ -71,6 +72,7 @@ const MainClock = () => {
       {minutes.map((elem) => {
         return <Number key={elem.id} value={elem.value} deg={elem.deg} />;
       })}
+      <Arrow />
     </div>
   );
 };
