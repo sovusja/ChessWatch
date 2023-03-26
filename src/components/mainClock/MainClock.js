@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./MainClock.css";
 import Number from "../number/Number";
 import Arrow from "../arrow/Arrow";
 
 const MainClock = () => {
+  const [time, setTime] = useState(0);
+
+  const minDeg = Math.round(time / 10);
+  const secDeg = Math.round(time * 6);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime((prev) => prev + 1);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [setTime]);
+
   const minutes = [
     {
       id: 1,
@@ -67,12 +81,29 @@ const MainClock = () => {
     },
   ];
 
+  const arrowData = [
+    {
+      id: 2,
+      type: "minute",
+      rotatePos: minDeg,
+    },
+    {
+      id: 1,
+      type: "second",
+      rotatePos: secDeg,
+    },
+  ];
+
   return (
     <div className="background">
       {minutes.map((elem) => {
         return <Number key={elem.id} value={elem.value} deg={elem.deg} />;
       })}
-      <Arrow />
+      {arrowData.map((elem) => {
+        return (
+          <Arrow key={elem.id} type={elem.type} rotatePos={elem.rotatePos} />
+        );
+      })}
     </div>
   );
 };

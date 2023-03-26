@@ -9,4 +9,4 @@ const Number = ({ value, deg }) => {
   );
 };
 
-export default Number;
+export default React.memo(Number);
