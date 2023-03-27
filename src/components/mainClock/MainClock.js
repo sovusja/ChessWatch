@@ -9,14 +9,14 @@ const MainClock = () => {
   const minDeg = Math.round(time / 10);
   const secDeg = Math.round(time * 6);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime((prev) => prev + 1);
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [setTime]);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setTime((prev) => prev + 1);
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, [setTime]);
 
   const minutes = [
     {

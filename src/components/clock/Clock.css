@@ -1,0 +1,48 @@
+.clock_button-control {
+  display: flex;
+  width: 600px;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 90px;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.clock {
+  display: flex;
+  background-color: hsl(24, 67%, 51%);
+  width: 600px;
+  height: 450px;
+  border: 7px solid rgb(87, 61, 37);
+  border-radius: 15px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  z-index: 2;
+  position: relative;
+}
+
+.clock_main {
+  display: flex;
+  width: 600px;
+  height: 210px;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+.clock_button {
+  display: flex;
+  width: 300px;
+  height: 100px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.clock_button-timer {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  height: 35px;
+}

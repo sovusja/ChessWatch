@@ -1,0 +1,10 @@
+.button_timer {
+  display: flex;
+  width: 60px;
+  height: 30px;
+  background-color: hwb(96 16% 48%);
+  border: 2px solid hsl(101, 63%, 22%);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}

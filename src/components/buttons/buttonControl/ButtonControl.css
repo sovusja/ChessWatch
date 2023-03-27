@@ -1,0 +1,16 @@
+.button_control {
+  width: 100px;
+  height: 80px;
+  background-color: hsl(17, 96%, 56%);
+  border: 3px solid hwb(17 5% 37%);
+  /* border-radius: 25%; */
+  border-top-left-radius: 25%;
+  border-top-right-radius: 25%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.button_control__active {
+  transform: translateY(50px);
+  background-color: #c5c5c5;
+}
