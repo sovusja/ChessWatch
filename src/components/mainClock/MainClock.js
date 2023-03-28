@@ -3,20 +3,23 @@ import "./MainClock.css";
 import Number from "../number/Number";
 import Arrow from "../arrow/Arrow";
 
-const MainClock = () => {
+const MainClock = ({ id, activeTimerId }) => {
   const [time, setTime] = useState(0);
 
   const minDeg = Math.round(time / 10);
   const secDeg = Math.round(time * 6);
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     setTime((prev) => prev + 1);
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, [setTime]);
+  useEffect(() => {
+    if (activeTimerId !== id) {
+      return;
+    }
+    const timer = setInterval(() => {
+      setTime((prev) => prev + 1);
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [setTime, id, activeTimerId]);
 
   const minutes = [
     {
