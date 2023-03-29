@@ -1,9 +1,10 @@
 import React from "react";
 import "./ButtonControl.css";
 
-const ButtonControl = ({ id, setActiveTimerId, activeTimerId }) => {
+const ButtonControl = ({ id, setActiveTimerId, activeTimerId, setWinner }) => {
   const clickHandler = () => {
     setActiveTimerId(id);
+    setWinner(null);
   };
 
   const activeClass =

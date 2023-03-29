@@ -3,13 +3,28 @@ import "./MainClock.css";
 import Number from "../number/Number";
 import Arrow from "../arrow/Arrow";
 
-const MainClock = ({ id, activeTimerId }) => {
+const MainClock = ({
+  id,
+  activeTimerId,
+  gameDuration,
+  setActiveTimerId,
+  type,
+  setWinner,
+}) => {
   const [time, setTime] = useState(0);
 
   const minDeg = Math.round(time / 10);
   const secDeg = Math.round(time * 6);
 
   useEffect(() => {
+    if (activeTimerId === null) {
+      setTime(0);
+    }
+    if (time > gameDuration) {
+      setWinner(type === "White" ? "Black" : "White");
+      setTime(0);
+      setActiveTimerId(null);
+    }
     if (activeTimerId !== id) {
       return;
     }
@@ -19,7 +34,16 @@ const MainClock = ({ id, activeTimerId }) => {
     return () => {
       clearInterval(timer);
     };
-  }, [setTime, id, activeTimerId]);
+  }, [
+    setTime,
+    id,
+    activeTimerId,
+    gameDuration,
+    time,
+    setActiveTimerId,
+    setWinner,
+    type,
+  ]);
 
   const minutes = [
     {

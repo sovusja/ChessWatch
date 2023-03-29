@@ -1,10 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ButtonTimer.css";
 
-const ButtonTimer = ({ id, text, value }) => {
-  const activeClass = id ? "button_timer button_timer__active" : "button_timer";
+const ButtonTimer = ({
+  text,
+  value,
+  gameDuration,
+  setGameDuration,
+  activeTimerId,
+}) => {
+  const activeClass =
+    value === gameDuration
+      ? "button_timer button_timer__active"
+      : "button_timer";
 
-  return <div className={activeClass}>{text}</div>;
+  const clickHandler = () => {
+    if (activeTimerId) {
+      return;
+    }
+    setGameDuration(value);
+  };
+
+  return (
+    <div className={activeClass} onClick={clickHandler}>
+      {text}
+    </div>
+  );
 };
 
 export default ButtonTimer;

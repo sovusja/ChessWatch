@@ -7,6 +7,8 @@ import "./Clock.css";
 
 const Clock = () => {
   const [activeTimerId, setActiveTimerId] = useState(null);
+  const [gameDuration, setGameDuration] = useState(1800);
+  const [winner, setWinner] = useState(null);
 
   const timerButton = [
     {
@@ -26,12 +28,14 @@ const Clock = () => {
     },
   ];
 
-  const mainActiveClock = [
+  const mainClockData = [
     {
       id: 1,
+      type: "Whyte",
     },
     {
       id: 2,
+      type: "Black",
     },
   ];
 
@@ -54,24 +58,30 @@ const Clock = () => {
               id={elem.id}
               setActiveTimerId={setActiveTimerId}
               activeTimerId={activeTimerId}
+              setWinner={setWinner}
             />
           );
         })}
       </div>
       <div className="clock">
+        {winner && <div className="winner">{winner} Won</div>}
         <div className="clock_main">
-          {mainActiveClock.map((elem) => {
+          {mainClockData.map((elem) => {
             return (
               <MainClock
                 key={elem.id}
                 id={elem.id}
                 activeTimerId={activeTimerId}
+                gameDuration={gameDuration}
+                setActiveTimerId={setActiveTimerId}
+                type={elem.type}
+                setWinner={setWinner}
               />
             );
           })}
         </div>
         <div className="clock_button">
-          <ButtonStop />
+          <ButtonStop setActiveTimerId={setActiveTimerId} />
           <div className="clock_button-timer">
             {timerButton.map((elem) => {
               return (
@@ -79,6 +89,9 @@ const Clock = () => {
                   key={elem.id}
                   text={elem.text}
                   value={elem.value}
+                  gameDuration={gameDuration}
+                  setGameDuration={setGameDuration}
+                  activeTimerId={activeTimerId}
                 />
               );
             })}
