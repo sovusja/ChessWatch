@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import useClock from "../../hooks/useClock";
 import ButtonControl from "../buttons/buttonControl/ButtonControl";
 import ButtonStop from "../buttons/buttonStop/ButtonStop";
 import ButtonTimer from "../buttons/buttonTimer/ButtonTimer";
@@ -6,52 +7,22 @@ import MainClock from "../mainClock/MainClock";
 import "./Clock.css";
 
 const Clock = () => {
-  const [activeTimerId, setActiveTimerId] = useState(null);
-  const [gameDuration, setGameDuration] = useState(1800);
-  const [winner, setWinner] = useState(null);
-
-  const timerButton = [
-    {
-      id: 1,
-      text: "15 min",
-      value: 1800,
-    },
-    {
-      id: 2,
-      text: "30 min",
-      value: 3600,
-    },
-    {
-      id: 3,
-      text: "45 min",
-      value: 5400,
-    },
-  ];
-
-  const mainClockData = [
-    {
-      id: 1,
-      type: "Whyte",
-    },
-    {
-      id: 2,
-      type: "Black",
-    },
-  ];
-
-  const controlButton = [
-    {
-      id: 1,
-    },
-    {
-      id: 2,
-    },
-  ];
+  const {
+    activeTimerId,
+    setActiveTimerId,
+    gameDuration,
+    setGameDuration,
+    winner,
+    setWinner,
+    timerButtonData,
+    mainClockData,
+    controlButtonData,
+  } = useClock();
 
   return (
     <div>
       <div className="clock_button-control">
-        {controlButton.map((elem) => {
+        {controlButtonData.map((elem) => {
           return (
             <ButtonControl
               key={elem.id}
@@ -83,7 +54,7 @@ const Clock = () => {
         <div className="clock_button">
           <ButtonStop setActiveTimerId={setActiveTimerId} />
           <div className="clock_button-timer">
-            {timerButton.map((elem) => {
+            {timerButtonData.map((elem) => {
               return (
                 <ButtonTimer
                   key={elem.id}

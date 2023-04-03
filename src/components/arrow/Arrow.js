@@ -1,7 +1,9 @@
 import React from "react";
 import "./Arrow.css";
 
-const Arrow = ({ id, type, rotatePos, interval }) => {
+const Arrow = (props) => {
+  const { type, rotatePos } = props;
+
   return (
     <div
       className={`container container_${type}`}

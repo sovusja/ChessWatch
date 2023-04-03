@@ -1,10 +1,11 @@
 import React from "react";
+import useButtonStop from "../../../hooks/useButtonStop";
 import "./ButtonStop.css";
 
-const ButtonStop = ({ setActiveTimerId }) => {
-  const clickHandler = () => {
-    setActiveTimerId(null);
-  };
+const ButtonStop = (props) => {
+  const { setActiveTimerId } = props;
+  const { clickHandler } = useButtonStop({ setActiveTimerId });
+
   return (
     <div className="button_stop" onClick={clickHandler}>
       STOP
@@ -12,4 +13,4 @@ const ButtonStop = ({ setActiveTimerId }) => {
   );
 };
 
-export default ButtonStop;
+export default React.memo(ButtonStop);

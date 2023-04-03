@@ -1,24 +1,16 @@
 import React from "react";
+import useButtonTimer from "../../../hooks/useButtonTimer";
 import "./ButtonTimer.css";
 
-const ButtonTimer = ({
-  text,
-  value,
-  gameDuration,
-  setGameDuration,
-  activeTimerId,
-}) => {
-  const activeClass =
-    value === gameDuration
-      ? "button_timer button_timer__active"
-      : "button_timer";
+const ButtonTimer = (props) => {
+  const { text, value, gameDuration, setGameDuration, activeTimerId } = props;
 
-  const clickHandler = () => {
-    if (activeTimerId) {
-      return;
-    }
-    setGameDuration(value);
-  };
+  const { clickHandler, activeClass } = useButtonTimer({
+    value,
+    gameDuration,
+    setGameDuration,
+    activeTimerId,
+  });
 
   return (
     <div className={activeClass} onClick={clickHandler}>
@@ -27,4 +19,4 @@ const ButtonTimer = ({
   );
 };
 
-export default ButtonTimer;
+export default React.memo(ButtonTimer);

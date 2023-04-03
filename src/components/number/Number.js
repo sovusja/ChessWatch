@@ -1,7 +1,8 @@
 import React from "react";
 import "./Number.css";
 
-const Number = ({ value, deg, type }) => {
+const Number = (props) => {
+  const { value, deg, type } = props;
   const activeColor = type === "Whyte" ? "num_black" : "num_whyte";
 
   return (

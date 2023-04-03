@@ -1,18 +1,18 @@
 import React from "react";
+import useButtonControl from "../../../hooks/useButtonControl";
 import "./ButtonControl.css";
 
-const ButtonControl = ({ id, setActiveTimerId, activeTimerId, setWinner }) => {
-  const clickHandler = () => {
-    setActiveTimerId(id);
-    setWinner(null);
-  };
+const ButtonControl = (props) => {
+  const { id, setActiveTimerId, activeTimerId, setWinner } = props;
 
-  const activeClass =
-    id === activeTimerId
-      ? "button_control button_control__active"
-      : "button_control";
+  const { clickHandler, activeClass } = useButtonControl({
+    id,
+    setActiveTimerId,
+    activeTimerId,
+    setWinner,
+  });
 
   return <div className={activeClass} onClick={clickHandler}></div>;
 };
 
-export default ButtonControl;
+export default React.memo(ButtonControl);
