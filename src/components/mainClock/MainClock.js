@@ -16,12 +16,15 @@ const MainClock = ({
   const minDeg = Math.round(time / 10);
   const secDeg = Math.round(time * 6);
 
+  const activeClass =
+    type !== "Whyte" ? "background black" : "background whyte";
+
   useEffect(() => {
     if (activeTimerId === null) {
       setTime(0);
     }
     if (time > gameDuration) {
-      setWinner(type === "White" ? "Black" : "White");
+      setWinner(type === "Whyte" ? "Black" : "Whyte");
       setTime(0);
       setActiveTimerId(null);
     }
@@ -122,9 +125,11 @@ const MainClock = ({
   ];
 
   return (
-    <div className="background">
+    <div className={activeClass}>
       {minutes.map((elem) => {
-        return <Number key={elem.id} value={elem.value} deg={elem.deg} />;
+        return (
+          <Number key={elem.id} value={elem.value} deg={elem.deg} type={type} />
+        );
       })}
       {arrowData.map((elem) => {
         return (

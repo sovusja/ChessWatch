@@ -1,16 +1,16 @@
 .button_control {
   width: 100px;
   height: 80px;
-  background-color: hsl(17, 96%, 56%);
-  border: 3px solid hwb(17 5% 37%);
-  /* border-radius: 25%; */
+  background-image: url("../../../images/metalic.jpg");
+  border: 1px solid #1f1f1f;
   border-top-left-radius: 25%;
   border-top-right-radius: 25%;
   box-sizing: border-box;
   z-index: 1;
+  cursor: pointer;
 }
 
 .button_control__active {
   transform: translateY(50px);
-  background-color: #c5c5c5;
+  background-image: url("../../../images/metalic-lite.jpg");
 }

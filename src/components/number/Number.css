@@ -8,4 +8,15 @@
   width: 20px;
   box-sizing: border-box;
   padding: 5px;
+  font-weight: 500;
+}
+
+.num_whyte {
+  color: #ebebeb;
+  background: none;
+}
+
+.num_black {
+  color: #000000;
+  background: none;
 }

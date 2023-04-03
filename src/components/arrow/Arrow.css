@@ -19,13 +19,13 @@
 .block {
   height: 50%;
   width: 100%;
-  background-color: rgb(255, 60, 0);
+  background-color: #ff3c00;
   border-radius: 5px;
 }
 
 .block_minute {
   height: 35%;
-  background-color: black;
+  background-color: #000000;
 }
 
 .block_second {
@@ -36,5 +36,4 @@
   visibility: hidden;
   height: 50%;
   width: 100%;
-  background-color: blue;
 }
